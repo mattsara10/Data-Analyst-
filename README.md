@@ -6,6 +6,7 @@ This repository is a collection of all my data analyst projects.  The purpose of
 Feel free to reach out to me if you have any questions or if you would love to collaborate in the future.
 
 Email: mmattsaraceno55@gmail.com
+
 LinkedIn: 
 
 Enjoy!
