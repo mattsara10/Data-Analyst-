@@ -7,6 +7,6 @@ Feel free to reach out to me if you have any questions or if you would love to c
 
 Email: mmattsaraceno55@gmail.com
 
-LinkedIn: 
+LinkedIn: https://www.linkedin.com/in/matthew-saraceno-97b16b17a/
 
 Enjoy!
