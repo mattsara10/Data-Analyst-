@@ -1,0 +1,449 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={What Predicts Good 3PT Shooting?},
+  pdfauthor={Matt Saraceno},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{What Predicts Good 3PT Shooting?}
+\author{Matt Saraceno}
+\date{2024-07-15}
+
+\begin{document}
+\maketitle
+
+\subsubsection{\texorpdfstring{\textbf{Introduction}}{Introduction}}\label{introduction}
+
+Three point shooting(3PT) is a critical part of modern basketball. The
+best teams in the National Basketball Associate(NBA) are all in an arms
+race to load up on the best three point shooters in the world. With so
+many players being evaluated on their ability to shoot the three ball,
+what data can be used to help predict a players ability to make three
+pointers?
+
+The goal of this report is to predict a players ability to hit three
+pointers by looking at three different factors: free-throw(FT)
+percentage, mid-range percentage, and the position they play.
+
+\subsubsection{\texorpdfstring{\textbf{Question \#1: Does the ability to
+make free-throws influence three-point
+shooting?}}{Question \#1: Does the ability to make free-throws influence three-point shooting?}}\label{question-1-does-the-ability-to-make-free-throws-influence-three-point-shooting}
+
+We have all heard this before in one way or another, ``A player's
+ability to make free throws is an indicator that a player is, or can be,
+a great shooter''. This line of thinking has been repeated so many times
+across sports media that it has become basketball common knowledge, but
+is it true?
+
+I have decided to take a look at last years shooting totals from all 572
+NBA players, and see if there truly is an correlation between the two
+statistics.
+
+The code below gives a quick preview of what our data looks like.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.4     v readr     2.1.5
+## v forcats   1.0.0     v stringr   1.5.1
+## v ggplot2   3.5.1     v tibble    3.2.1
+## v lubridate 1.9.3     v tidyr     1.3.1
+## v purrr     1.0.2     
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(readxl)}
+\NormalTok{mydata1 }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"D:/Data Analyst/3pt shooting/3pt\_shooting.xlsx"}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(mydata1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 30
+##      Rk Player    Pos     Age Tm        G    GS    MP    FG   FGA FG_per three_P
+##   <dbl> <chr>     <chr> <dbl> <chr> <dbl> <dbl> <dbl> <dbl> <dbl>  <dbl>   <dbl>
+## 1     1 Precious~ PF       24 TOT      74    18  1624   235   469  0.501      26
+## 2     2 Bam Adeb~ C        26 MIA      71    71  2416   530  1017  0.521      15
+## 3     3 Ochai Ag~ SG       23 TOT      78    28  1641   178   433  0.411      62
+## 4     4 Santi Al~ PF       23 MEM      61    35  1618   247   568  0.435     106
+## 5     5 Nickeil ~ SG       25 MIN      82    20  1921   236   538  0.439     131
+## 6     6 Grayson ~ SG       28 PHO      75    74  2513   340   682  0.499     205
+## # i 18 more variables: three_PA <dbl>, threeP_percent <dbl>, two_P <dbl>,
+## #   two_PA <dbl>, twoP_per <dbl>, eFG_per <dbl>, FT <dbl>, FTA <dbl>,
+## #   FT_percent <dbl>, ORB <dbl>, DRB <dbl>, TRB <dbl>, AST <dbl>, STL <dbl>,
+## #   BLK <dbl>, TOV <dbl>, PF <dbl>, PTS <dbl>
+\end{verbatim}
+
+Before we can start to do any analysis, we must first filter out some
+data. Not every NBA player this season shot enough FTs or three-pointers
+to give us any meaningful data. This report will look at only players
+that have attempted at least 150 FTs and attempted at least 85 three
+pointers.
+
+Below is a graph of charting the two statistics:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{filtered\_mydata1 }\OtherTok{\textless{}{-}}\NormalTok{ mydata1[mydata1}\SpecialCharTok{$}\NormalTok{FTA }\SpecialCharTok{\textgreater{}=} \DecValTok{150} \SpecialCharTok{\&}\NormalTok{ mydata1}\SpecialCharTok{$}\NormalTok{three\_PA }\SpecialCharTok{\textgreater{}=}\DecValTok{85}\NormalTok{, ]}
+\FunctionTok{ggplot}\NormalTok{(filtered\_mydata1, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ FT\_percent, }\AttributeTok{y =}\NormalTok{ threeP\_percent))}\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{()}\SpecialCharTok{+}
+  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"3PT\% based on FT\%"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"FT\%"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"3PT\%"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{\textquotesingle{}lm\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula = 'y ~ x'
+\end{verbatim}
+
+\includegraphics{Report_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+Out of the 572 initial players that were observed, only 106 made the cut
+after our filtering. The median FT percentage from this group of players
+is 81.62\% and their 3PT shooting percentage is 36.03\%. Those are some
+pretty solid numbers from some of the best players in the world.
+
+The initial thoughts from examining this graph, is that there seems to
+be a positive correlation between the two stats. A trend line is added
+to the graph to provide the audience the direction of the data. The data
+is not heavily correlated due to the random nature that the data
+presents. That is reinforced by our correlation coefficient.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cor}\NormalTok{(filtered\_mydata1}\SpecialCharTok{$}\NormalTok{FT\_percent, filtered\_mydata1}\SpecialCharTok{$}\NormalTok{threeP\_percent)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5059518
+\end{verbatim}
+
+Correlation coefficient provides a measurement to determine if there is
+any significant relationship between two variables. The closer the
+correlation coefficient is to 1, the stronger the relationship is. The
+correlation coefficient for this data is .505918. A correlation
+coefficient of less than .7 is not strong enough to infer that high FT
+percentage is linked to good three point shooting.
+
+\subsubsection{\texorpdfstring{\textbf{Question \#2: Does a player's
+ability to make mid-range jump shots influence a player ability to make
+three-pointers?}}{Question \#2: Does a player's ability to make mid-range jump shots influence a player ability to make three-pointers?}}\label{question-2-does-a-players-ability-to-make-mid-range-jump-shots-influence-a-player-ability-to-make-three-pointers}
+
+The next variable of interest is the mid range jump shots. For this
+study, shooting data by distance was used to help determine mid range
+shoots. Shoots taken between 10-16 feet was labeled as a mid-range. Just
+like with the free throw study above, the data used to answer this
+question was from shooting data of 572 NBA players from the 2023-24
+season. Then the data was filtered to look at players who took at least
+10\% of the shots from 10-16 feet and played at least 25 games. Some
+outliers were removed to clean up the data as well.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mydata2 }\OtherTok{\textless{}{-}} \FunctionTok{read\_excel}\NormalTok{(}\StringTok{"D:/Data Analyst/3pt shooting/shooting\_advanced.xlsx"}\NormalTok{)}
+\NormalTok{filtered\_mydata2 }\OtherTok{\textless{}{-}}\NormalTok{ mydata2[mydata2}\SpecialCharTok{$}\NormalTok{ten\_sixteenAperbyDistance }\SpecialCharTok{\textgreater{}=}\NormalTok{ .}\DecValTok{125} \SpecialCharTok{\&}\NormalTok{ mydata2}\SpecialCharTok{$}\NormalTok{Games }\SpecialCharTok{\textgreater{}=} \DecValTok{25}\NormalTok{, ]}
+\NormalTok{filtered\_mydata3 }\OtherTok{\textless{}{-}}\NormalTok{ filtered\_mydata2 }\SpecialCharTok{\%\textgreater{}\%}  \FunctionTok{filter}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{row\_number}\NormalTok{() }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{53}\NormalTok{, }\DecValTok{68}\NormalTok{))}
+\NormalTok{filtered\_mydata4 }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(filtered\_mydata3, }\SpecialCharTok{!}\FunctionTok{is.na}\NormalTok{(filtered\_mydata3}\SpecialCharTok{$}\NormalTok{threep\_fgperbyDistance))}
+\FunctionTok{head}\NormalTok{(filtered\_mydata4)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 29
+##      Rk Player     Pos     Age Tm    Games    MP `FG%` Dist. twoPA_perbyDistance
+##   <dbl> <chr>      <chr> <dbl> <chr> <dbl> <dbl> <dbl> <dbl>               <dbl>
+## 1     2 Bam Adeba~ C        26 MIA      71  2416 0.521   8.5               0.959
+## 2    10 Kyle Ande~ PF       30 MIN      79  1782 0.46    9                 0.889
+## 3    13 Cole Anth~ PG       23 ORL      81  1817 0.435  14.9               0.64 
+## 4    17 Deandre A~ C        25 POR      55  1784 0.57    8.9               0.987
+## 5    25 Paolo Ban~ PF       21 ORL      80  2799 0.455  12.6               0.751
+## 6    28 Dominick ~ PF       20 SAS      33   420 0.496   7.4               0.92 
+## # i 19 more variables: zero_3AperbyDistance <dbl>,
+## #   three_tenAperbyDistance <dbl>, ten_sixteenAperbyDistance <dbl>,
+## #   sixteen_threepAperbyDistance <dbl>, threepAperbyDistance <dbl>,
+## #   twop_fgperbyDistance <dbl>, zero_threefgperbyDistnace <dbl>,
+## #   three_tenfgperbyDistance <dbl>, ten_sixteenfgperbyDistance <dbl>,
+## #   sixteen_threepfgperbyDistance <dbl>, threep_fgperbyDistance <dbl>,
+## #   twop_perass <dbl>, threep_perass <dbl>, dunks_perFGA <dbl>, ...
+\end{verbatim}
+
+After the filtering is applied, we are left with 74 players that will be
+elevated to determine if the ability to make mid range shots has any
+influence on a players ability to hit three pointers. We will replicate
+the same exercise that we did in question \#1. First, we will plot the
+data and then we will look at the correlation coefficient to determine
+if their is any relationship between the two variables.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(filtered\_mydata4, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ ten\_sixteenfgperbyDistance, }\AttributeTok{y =}\NormalTok{ threep\_fgperbyDistance))}\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ Pos))}\SpecialCharTok{+}
+  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"3PT\% based on \%of mid range attempts"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"\% 10{-}16ft"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"Three Point \%"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{geom\_hline}\NormalTok{(}\AttributeTok{yintercept =}\NormalTok{ .}\DecValTok{35}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{geom\_vline}\NormalTok{(}\AttributeTok{xintercept =}\NormalTok{ .}\DecValTok{45}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{annotate}\NormalTok{(}\StringTok{"text"}\NormalTok{, }\AttributeTok{x =}\NormalTok{.}\DecValTok{55}\NormalTok{, }\AttributeTok{y =}\NormalTok{.}\DecValTok{475}\NormalTok{, }\AttributeTok{label =} \StringTok{"Great Shooters"}\NormalTok{, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{, }\AttributeTok{size =} \DecValTok{4}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{annotate}\NormalTok{(}\StringTok{"text"}\NormalTok{, }\AttributeTok{x =}\NormalTok{ .}\DecValTok{35}\NormalTok{, }\AttributeTok{y =}\NormalTok{ .}\DecValTok{45}\NormalTok{, }\AttributeTok{label =} \StringTok{"Good Three Point Shooters"}\NormalTok{, }\AttributeTok{col =}\StringTok{"red"}\NormalTok{, }\AttributeTok{size =} \DecValTok{4}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{annotate}\NormalTok{(}\StringTok{"text"}\NormalTok{, }\AttributeTok{x =}\NormalTok{ .}\DecValTok{35}\NormalTok{, }\AttributeTok{y =}\NormalTok{ .}\DecValTok{1}\NormalTok{, }\AttributeTok{label =} \StringTok{"Average Shooter"}\NormalTok{, }\AttributeTok{col  =} \StringTok{"red"}\NormalTok{, }\AttributeTok{size =} \DecValTok{4}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{annotate}\NormalTok{(}\StringTok{"text"}\NormalTok{, }\AttributeTok{x =}\NormalTok{.}\DecValTok{55}\NormalTok{, }\AttributeTok{y=}\NormalTok{.}\DecValTok{1}\NormalTok{, }\AttributeTok{label =} \StringTok{"Good Mid{-}range Shooter"}\NormalTok{, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{, }\AttributeTok{size  =} \DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Report_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+The graph above shows shows a players three point percentage in relation
+to their mid range percentage. The data points are random in nature with
+each color representing the position that that player plays. The plot is
+also broken up into four different quadrants to help viewers understand
+how well a player shoots based on their position on the plot.
+
+The initial thoughts from the graph is there will be little to no
+correlation between a players ability to make a mid range shots and
+their ability to make three pointers.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cor}\NormalTok{(filtered\_mydata4}\SpecialCharTok{$}\NormalTok{ten\_sixteenfgperbyDistance, filtered\_mydata4}\SpecialCharTok{$}\NormalTok{threep\_fgperbyDistance)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.1603543
+\end{verbatim}
+
+The correlation coefficient is .160, way to low to infer that there is
+any association between the two variables.
+
+\subsubsection{\texorpdfstring{\textbf{Question \#3: Does a player's
+position have any influence on their ability to hit three
+pointers?}}{Question \#3: Does a player's position have any influence on their ability to hit three pointers?}}\label{question-3-does-a-players-position-have-any-influence-on-their-ability-to-hit-three-pointers}
+
+Finally, we will look at a player's position on the court, and if it has
+any influence on their ability to shoot three pointers. Does a player's
+position influence their training enough where one position would shoot
+much better than an other?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(filtered\_mydata1, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{reorder}\NormalTok{(Pos, }\SpecialCharTok{{-}}\NormalTok{threeP\_percent), }\AttributeTok{y =}\NormalTok{ threeP\_percent))}\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{()}\SpecialCharTok{+}
+  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Three Pointers v. Position"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"Three Point Percentage"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{ylab}\NormalTok{(}\StringTok{"Position"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{coord\_flip}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Report_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+The graph above uses the same filtered data from question \#1. These box
+plots help demonstrate the spread of data, but ultimately this allows us
+to compare averages across each position.
+
+Below is a table of the average three point percentage by position.
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Position & Average Three point percentage \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+PG & .368 \\
+PF & .368 \\
+SG & .365 \\
+SF & .356 \\
+C & .335 \\
+\end{longtable}
+
+The dark lines within each box represents the average three point
+percentage from each position. The box represents the Interquartile
+range, or the 50\% of the data. The the dark lines that look like tails,
+are the upper and lower limits of the data. To no surprise, the best
+shooting position is point-guard(PG), and Center(C) in last place. The
+second best three point shooting position is PF, but they are a position
+with the most spread.
+
+This plot does not however demonstrate whether there is an association
+between position and three point shooting. To do that we will use the
+Kruskal-Wallis test. This test allows to determine if there are
+statically significant differences between two or more groups. In our
+case the groups are positions on a basketball court, and the dependent
+variables are the shooting percentages of those positions.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{kruskal.test}\NormalTok{(filtered\_mydata1}\SpecialCharTok{$}\NormalTok{threeP\_percent}\SpecialCharTok{\textasciitilde{}}\NormalTok{filtered\_mydata1}\SpecialCharTok{$}\NormalTok{Pos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Kruskal-Wallis rank sum test
+## 
+## data:  filtered_mydata1$threeP_percent by filtered_mydata1$Pos
+## Kruskal-Wallis chi-squared = 6.5341, df = 4, p-value = 0.1627
+\end{verbatim}
+
+From this test, we are returned several values but the one that is most
+important is the one titled ``p-value''. The p-value is a number that
+describes how significantly likely a participle set of observations are
+to occur given the null hypothesis to be true. What we are looking for
+here is for our p-value to be less than .05. To keep things simple, the
+p-value for this experiment needs to be less than .05 for us to
+confidently say that the position of a player significantly impacts
+their ability to make three pointers. The p-value for our test is .1627,
+greater than .05, so no. There is no significant impact on three point
+shooting based on the position of a player
+
+\subsubsection{\texorpdfstring{\textbf{Rebuttal}}{Rebuttal}}\label{rebuttal}
+
+There are several limitations to this study that need to be addressed.
+First, there is a lack of data. There are limitations to using only one
+season. There could be contributing factors that influence the data. For
+example, the Covid lock down season or even shortened seasons. Secondly,
+correlation coefficients has several pitfalls and does not perfectly
+describe the relationship between two variables. As the famous saying
+goes, ``correlation does not imply causation''.
+
+\subsubsection{\texorpdfstring{\textbf{Conclusion}}{Conclusion}}\label{conclusion}
+
+In conclusion, this report aimed to determine if any statistical data
+could evaluate a players ability to make three pointers at a high level.
+This report looked at common associations between variables such as
+free-trow and mid-range shooting, and uncommon associations like player
+positions.
+
+Making three pointers at a high level is a difficult task. There is a
+lot that goes into it, and ultimately no data point can determine how
+well someone can make three pointers better than the eye test. To truly
+understand a player, you must watch and appreciate what they do.
+Basketball is a beautiful sport, and it is best enjoyed when one can be
+part of it.
+
+\end{document}
